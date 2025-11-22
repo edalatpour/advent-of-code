@@ -30,3 +30,30 @@ for line in input_data:
     total_paper += paper_needed
 
 print(f"Part 1 - Total wrapping paper needed: {total_paper} square feet")
+
+# Part 2: Calculate total ribbon needed
+total_ribbon = 0
+
+for line in input_data:
+    # Skip empty lines
+    if not line.strip():
+        continue
+    
+    # Parse dimensions (format: LxWxH)
+    dimensions = list(map(int, line.split('x')))
+    l, w, h = dimensions
+    
+    # Sort dimensions to easily find the two smallest
+    sorted_dims = sorted([l, w, h])
+    
+    # Ribbon for wrapping: smallest perimeter = 2 * (smallest + second_smallest)
+    wrapping_ribbon = 2 * (sorted_dims[0] + sorted_dims[1])
+    
+    # Ribbon for bow: volume = l * w * h
+    bow_ribbon = l * w * h
+    
+    # Total ribbon for this present
+    ribbon_needed = wrapping_ribbon + bow_ribbon
+    total_ribbon += ribbon_needed
+
+print(f"Part 2 - Total ribbon needed: {total_ribbon} feet")
