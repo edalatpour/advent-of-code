@@ -20,25 +20,23 @@ For example:
 ))) and )())()) both result in floor -3.
 To what floor do the instructions take Santa?
 
-## Solution
+--- Part Two ---
 
-The solution to the puzzle involves reading the input from a file, iterating through each character in the input string, and updating a variable `floor` accordingly. An opening parenthesis `(` increases the floor by 1, while a closing parenthesis `)` decreases the floor by 1. The final value of the `floor` variable is the answer to the puzzle.
+Now, given the same instructions, find the position of the first character that causes him to enter the basement (floor -1). The first character in the instructions has position 1, the second character has position 2, and so on.
 
-```python
-# Read the input from 2015/Day01/input.txt and store it in a variable
-with open('2015/Day01/input.txt', 'r') as file:
-    input_data = file.read().strip()
+For example:
 
-# Initialize a variable floor to 0
-floor = 0
+) causes him to enter the basement at character position 1.
+()()) causes him to enter the basement at character position 5.
+What is the position of the character that causes Santa to first enter the basement?
 
-# Iterate through each character in the input string and update the floor variable accordingly
-for char in input_data:
-    if char == '(':
-        floor += 1
-    elif char == ')':
-        floor -= 1
+Your puzzle answer was 1783.
 
-# Print the final value of the floor variable
-print(floor)
-```
+Both parts of this puzzle are complete! They provide two gold stars: **
+
+At this point, you should return to your Advent calendar and try another puzzle.
+
+If you still want to see it, you can get your puzzle input.
+
+
+
