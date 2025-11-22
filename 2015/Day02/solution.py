@@ -6,9 +6,13 @@ with open('input.txt', 'r') as file:
 total_paper = 0
 
 for line in input_data:
+    # Skip empty lines
+    if not line.strip():
+        continue
+    
     # Parse dimensions (format: LxWxH)
     dimensions = list(map(int, line.split('x')))
-    l, w, h = dimensions[0], dimensions[1], dimensions[2]
+    l, w, h = dimensions
     
     # Calculate the three side areas
     side1 = l * w
