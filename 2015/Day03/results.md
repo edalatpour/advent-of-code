@@ -3,7 +3,7 @@
 ## Part 1
 **Question**: How many houses receive at least one present?
 
-**Answer**: 8 houses
+**Answer**: 6 houses
 
 ### Solution Approach
 - Started at position (0, 0) and delivered a present
