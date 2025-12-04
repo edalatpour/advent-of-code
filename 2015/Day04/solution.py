@@ -34,3 +34,12 @@ print(f"Part 1 - Lowest number for hash starting with five zeroes: {result}")
 test_string = f"{secret_key}{result}"
 hash_result = hashlib.md5(test_string.encode()).hexdigest()
 print(f"Verification: {test_string} → {hash_result}")
+
+# Part 2: Find the lowest positive number that produces an MD5 hash starting with six zeroes
+result_part2 = find_adventcoin(secret_key, leading_zeroes=6)
+print(f"\nPart 2 - Lowest number for hash starting with six zeroes: {result_part2}")
+
+# Verify the hash for Part 2
+test_string_part2 = f"{secret_key}{result_part2}"
+hash_result_part2 = hashlib.md5(test_string_part2.encode()).hexdigest()
+print(f"Verification: {test_string_part2} → {hash_result_part2}")
