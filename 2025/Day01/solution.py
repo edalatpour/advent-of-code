@@ -45,7 +45,10 @@ for rotation in input_data:
     # We hit 0 (mod 100) when p+k ≡ 0 (mod 100), i.e., k ≡ -p (mod 100)
     # For p in [0, 99]: k = 100-p, 200-p, 300-p, ... (if p > 0)
     # Or k = 100, 200, 300, ... (if p == 0)
-    # Number of such k in [1, d]: floor((d + p) / 100)
+    # Number of such k in [1, d]:
+    #   - If p == 0: floor(d / 100)
+    #   - If p > 0 and d >= 100-p: 1 + floor((d - (100-p)) / 100)
+    #   - Otherwise: 0
     #
     # For LEFT rotation from position p by distance d:
     # We go through: p-1, p-2, ..., p-d (thinking in terms of steps, not positions)
@@ -75,8 +78,9 @@ for rotation in input_data:
         else:
             # k = 100-current_position, 200-current_position, ...
             # First hit is at k = 100 - current_position
-            if distance >= 100 - current_position:
-                zero_count_part2 += 1 + ((distance - (100 - current_position)) // 100)
+            steps_to_first_zero = 100 - current_position
+            if distance >= steps_to_first_zero:
+                zero_count_part2 += 1 + ((distance - steps_to_first_zero) // 100)
         current_position = (current_position + distance) % 100
 
 print(f"Part 2 - Number of times dial points at 0 (including during rotations): {zero_count_part2}")

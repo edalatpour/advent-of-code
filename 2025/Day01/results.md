@@ -82,7 +82,7 @@ Step-by-step trace:
 - L82 from 14: passes through 0 once (at step 14) → 32 (count: 6)
 
 Expected: 6 times ✓
-Our solution correctly produces 6 for this example.
+Our solution correctly produced 6 for this example.
 
 ### Key Insights
 - Large rotations (like R1000) can pass through 0 multiple times: `1000 // 100 = 10` times
