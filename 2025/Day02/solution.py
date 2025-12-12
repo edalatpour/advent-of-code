@@ -37,7 +37,11 @@ for range_str in ranges:
         continue
     
     # Parse start and end of range
-    start, end = map(int, range_str.split('-'))
+    try:
+        start, end = map(int, range_str.split('-'))
+    except (ValueError, AttributeError):
+        print(f"Warning: Skipping malformed range: {range_str}")
+        continue
     
     # Check each number in the range
     for num in range(start, end + 1):
